@@ -1,0 +1,125 @@
+// 响应式断点混入
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == 'sm' {
+    @media (min-width: #{$breakpoint-sm}) { @content; }
+  }
+  @if $breakpoint == 'md' {
+    @media (min-width: #{$breakpoint-md}) { @content; }
+  }
+  @if $breakpoint == 'lg' {
+    @media (min-width: #{$breakpoint-lg}) { @content; }
+  }
+  @if $breakpoint == 'xl' {
+    @media (min-width: #{$breakpoint-xl}) { @content; }
+  }
+}
+
+// 弹性布局混入
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+// 文字溢出省略号
+@mixin text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// 多行文字溢出
+@mixin multiline-ellipsis($lines: 2) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// 春秋风格按钮混入
+@mixin guanzhong-button($type: 'primary') {
+  border: none;
+  border-radius: $border-radius;
+  padding: $spacing-sm $spacing-md;
+  font-family: $font-family-chinese;
+  font-size: $font-size-base;
+  cursor: pointer;
+  transition: $transition-normal;
+  
+  @if $type == 'primary' {
+    background: linear-gradient(135deg, $primary-color, darken($primary-color, 10%));
+    color: $light-color;
+    border: 1px solid darken($primary-color, 15%);
+    
+    &:hover {
+      background: linear-gradient(135deg, lighten($primary-color, 5%), $primary-color);
+      transform: translateY(-2px);
+      box-shadow: $shadow-md;
+    }
+  }
+  
+  @if $type == 'secondary' {
+    background: transparent;
+    color: $secondary-color;
+    border: 1px solid $secondary-color;
+    
+    &:hover {
+      background: rgba($secondary-color, 0.1);
+      box-shadow: $shadow-sm;
+    }
+  }
+  
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+}
+
+// 卡片样式混入
+@mixin guanzhong-card {
+  background: rgba($light-color, 0.95);
+  border-radius: $border-radius-lg;
+  border: 1px solid rgba($primary-color, 0.2);
+  box-shadow: $shadow-sm;
+  backdrop-filter: blur(10px);
+  
+  &:hover {
+    box-shadow: $shadow-md;
+    transform: translateY(-2px);
+  }
+}
+
+// 古代卷轴效果
+@mixin ancient-scroll {
+  background: linear-gradient(to right, #F5F5DC 0%, #F0E6D2 100%);
+  border: 1px solid #D4AF37;
+  box-shadow: inset 0 0 10px rgba(139, 69, 19, 0.1);
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #D4AF37, transparent);
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #D4AF37, transparent);
+  }
+}

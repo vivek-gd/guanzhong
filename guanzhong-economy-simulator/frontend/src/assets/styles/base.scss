@@ -1,0 +1,143 @@
+// 基础样式重置
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: $font-size-base;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-family-chinese;
+  line-height: 1.6;
+  color: $dark-color;
+  background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+  min-height: 100vh;
+}
+
+// 链接样式
+a {
+  color: $secondary-color;
+  text-decoration: none;
+  transition: $transition-fast;
+  
+  &:hover {
+    color: lighten($secondary-color, 15%);
+    text-decoration: underline;
+  }
+}
+
+// 标题样式
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-family-classic;
+  font-weight: bold;
+  margin-bottom: $spacing-md;
+  color: $primary-color;
+}
+
+h1 {
+  font-size: 2.5rem;
+  background: linear-gradient(45deg, $secondary-color, $accent-color);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h2 {
+  font-size: 2rem;
+  border-left: 4px solid $secondary-color;
+  padding-left: $spacing-md;
+}
+
+// 按钮基础样式
+button {
+  @include guanzhong-button('primary');
+  
+  &.secondary {
+    @include guanzhong-button('secondary');
+  }
+  
+  &.large {
+    padding: $spacing-md $spacing-lg;
+    font-size: $font-size-large;
+  }
+  
+  &.small {
+    padding: $spacing-xs $spacing-sm;
+    font-size: $font-size-small;
+  }
+}
+
+// 输入框样式
+input, textarea {
+  padding: $spacing-sm;
+  border: 1px solid rgba($primary-color, 0.3);
+  border-radius: $border-radius;
+  background: rgba($light-color, 0.9);
+  font-family: $font-family-chinese;
+  transition: $transition-fast;
+  
+  &:focus {
+    outline: none;
+    border-color: $secondary-color;
+    box-shadow: 0 0 0 2px rgba($secondary-color, 0.2);
+  }
+  
+  &::placeholder {
+    color: rgba($dark-color, 0.5);
+  }
+}
+
+// 卡片样式
+.card {
+  @include guanzhong-card;
+  padding: $spacing-lg;
+  margin-bottom: $spacing-md;
+  
+  &.ancient {
+    @include ancient-scroll;
+    padding: $spacing-xl;
+  }
+}
+
+// 响应式工具类
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-md;
+  
+  @include respond-to('lg') {
+    padding: 0 $spacing-lg;
+  }
+}
+
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.mt-1 { margin-top: $spacing-xs; }
+.mt-2 { margin-top: $spacing-sm; }
+.mt-3 { margin-top: $spacing-md; }
+.mt-4 { margin-top: $spacing-lg; }
+.mt-5 { margin-top: $spacing-xl; }
+
+// 动画类
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.3s ease-out;
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-50px); }
+  to { opacity: 1; transform: translateX(0); }
+}

@@ -1,0 +1,28 @@
+{
+  "economic_policies": [
+    {
+      "id": "xiangdi",
+      "name": "相地而衰征",
+      "description": "根据土地优劣征收不同赋税的土地改革政策",
+      "category": "土地政策",
+      "effect": {
+        "treasury": 15,
+        "stability": 10,
+        "farmer_satisfaction": 20
+      },
+      "historical_accuracy": 0.95
+    },
+    {
+      "id": "qingzhong",
+      "name": "轻重九府",
+      "description": "国家调控市场、平衡物价的经济管理方法",
+      "category": "经济调控",
+      "effect": {
+        "treasury": 20,
+        "stability": 15,
+        "merchant_satisfaction": 10
+      },
+      "historical_accuracy": 0.90
+    }
+  ]
+}
