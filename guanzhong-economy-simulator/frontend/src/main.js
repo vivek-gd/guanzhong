@@ -2,6 +2,10 @@ import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from './router'
+// 引入Tailwind样式
+import './assets/tailwind.css'
+// // 引入Font Awesome样式
+// import '@fortawesome/font-awesome-free/css/all.min.css'
 
 // 创建应用实例
 const app = createApp(App)

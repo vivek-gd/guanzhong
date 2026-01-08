@@ -1,3 +1,5 @@
 {
-    "liveServer.settings.port": 5590
+    "liveServer.settings.port": 5590,
+    "git.ignoreLimitWarning": true,
+    "Codegeex.RepoIndex": true
 }

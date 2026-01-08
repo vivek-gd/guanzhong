@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 全局样式补充（匹配目标HTML） */
+body {
+  @apply bg-dark text-light font-sans min-h-screen flex flex-col;
+}
